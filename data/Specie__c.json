@@ -1,0 +1,19 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Specie__c",
+                "referenceId": "Specie__cRef1"
+            },
+            "Description__c": "Es una planta medicinal",
+            "Ideal_Max_Temperature__c": 25,
+            "Image__c": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/d/d7/Aloe_vera_-_Agri-Horticultural_Society_of_India_-_Alipore_-_Kolkata_2013-01-05_2327.JPG\" alt=\"Name\" border=\"0\"/>",
+            "Image_URL__c": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Aloe_vera_-_Agri-Horticultural_Society_of_India_-_Alipore_-_Kolkata_2013-01-05_2327.JPG",
+            "Location__c": "Outdoors",
+            "Pulverization__c": false,
+            "Showing__c": null,
+            "Name": "Aloe vera",
+            "Type__c": "Ornamental"
+        }
+    ]
+}
