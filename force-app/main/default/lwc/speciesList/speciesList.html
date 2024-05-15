@@ -1,11 +1,15 @@
 <template>  
-    <template if:true={species.data}>  <!--Siempre hay que comprobar si el DATA tiene información-->
-        <template for:each={species.data} for:item="spec">
-            <div key={spec.Id}> <!--elemento padre-->
-                <!--Componente personalizado-->
-                <c-species-tile specie={spec} class="slds-col slds-var-m-around_small"> <!--Esto sirve para que salgan todas las plantas y no se repita siempre la misma-->
-                </c-species-tile>
-            </div> 
-        </template>
-    </template>
+    <div class="slds-align_absolute-center">
+        <div class="slds-grid slds-wrap">
+            <template if:true={species.data}>  <!--Siempre hay que comprobar si el DATA tiene información-->
+                <template for:each={species.data} for:item="spec">
+                    <div key={spec.Id}> <!--elemento padre-->
+                        <!--Componente personalizado-->
+                        <c-species-tile specie={spec} class="slds-col slds-var-m-around_small"> <!--Esto sirve para que salgan todas las plantas y no se repita siempre la misma-->
+                        </c-species-tile>
+                    </div> 
+                </template>
+            </template>
+        </div>
+    </div>        
 </template>
