@@ -25,3 +25,11 @@ SFDX: Retrieve Source from Org
 # Crear SQL
 
 sfdx force:data:tree:export -q "SELECT CreatedById, Description__c, Ideal_Max_Temperature__c, Image__c, Image_URL__c, LastModifiedById, Location__c, OwnerId, Pulverization__c, Showing__c, Name, Type__c FROM Specie__c" -d data
+
+# Descargarme un Objeto personalizado desde la ORG 
+
+sfdx force:source:retrieve -m CustomObject:Plant__c
+
+# Descargarme la TAB de un objeto desde la ORG
+
+sfdx force:source:retrieve -m CustomTab:Plant__c
