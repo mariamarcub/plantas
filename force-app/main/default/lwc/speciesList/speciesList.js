@@ -1,31 +1,22 @@
 import { LightningElement, wire } from 'lwc';
-import getAllSpecies from "@salesforce/apex/SpeciesService.getAllSpecies";
-export default class SpeciesList extends LightningElement {
-   /* species = [
-        {
-            Name: "Aloe Vera",
-            Description: "Es una planta medicinal",
-            Image_URL__c:
-                "https://upload.wikimedia.org/wikipedia/commons/d/d7/Aloe_vera_-_Agri-Horticultural_Society_of_India_-_Alipore_-_Kolkata_2013-01-05_2327.JPG",
-            Location__c: "Outdoors"
-        },
-        {
-            Name: "Jazmin",
-            Description: "Flores Blancas",
-            Image_URL__c:
-                "https://media.floresfrescasonline.com/product/jazmin-polyanthum-800x800.jpg",
-            Location__c: "Outdoors"
-        },
-        {
-            Name: "Echinopsis",
-            Description: "Cactus con flor grande",
-            Image_URL__c:
-                "https://upload.wikimedia.org/wikipedia/commons/a/a5/Echinopsis_oxygona_%284%29.jpg",
-            Location__c: "Outdoors"
-        }
-    ];
-    */
+import getFilteredSpecie from "@salesforce/apex/SpeciesService.getFilteredSpecie";
 
-    @wire(getAllSpecies)
+export default class SpeciesList extends LightningElement {
+    
+    //Propiedades, get y setter
+    searchText = ''; // Inicializar la propiedad
+
+    //Constructor
+
+    // Wire 
+    @wire(getFilteredSpecie, { searchText: '$searchText' }) //Se llama en el segundo parámetro a la propiedad
     species;
+
+    // Method to handle input change
+    handleInputChange(event) {
+        const searchTextAux = event.target.value;
+        if (searchTextAux.length >= 3 || searchTextAux === '') {
+            this.searchText = searchTextAux;
+        }
+    }
 }

@@ -1,5 +1,8 @@
 <template>  
     <div class="slds-align_absolute-center">
+        <lightning-input type="text" label="Enter some text" onchange={handleInputChange}></lightning-input>
+    </div>
+    <div class="slds-align_absolute-center">
         <div class="slds-grid slds-wrap">
             <template if:true={species.data}>  <!--Siempre hay que comprobar si el DATA tiene información-->
                 <template for:each={species.data} for:item="spec">
