@@ -57,7 +57,7 @@ public with sharing class PlantTriggerHandler {
     static Map<Id, Specie__c> preloadRealtedSpecies(Set<Id> specieIds) {
         // Query precarga objetos relacionados
         List<Specie__c> species = [
-            SELECT Summer_Watering_Frequency__c, Winter_Watering_Frequency__c
+            SELECT Summer_Watering_Frequency__c, Winter_Watering_Frequency__c, Summer_Fertilization_Frequency__c, Winter_Fertilization_Frequency__c
             FROM Specie__c
             WHERE Id IN :specieIds
         ];
