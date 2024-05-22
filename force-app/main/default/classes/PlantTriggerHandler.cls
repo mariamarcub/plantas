@@ -11,6 +11,8 @@ public with sharing class PlantTriggerHandler {
         for (Plant__c newPlant : newSObjects) {
             // Prepopulate New Watering Date
             populateNextWateringDate(newPlant, speciesById);
+            // Prepopulate New Fertilization Date
+            populateNextFertilizationDate(newPlant, speciesById);
         }
     } // Cerramos beforeInsert
 
@@ -37,6 +39,9 @@ public with sharing class PlantTriggerHandler {
             // No hace falta mirar si es nulo o no porque al ser Update ya existe
             if (oldPlant.Last_Watered__c != newPlant.Last_Watered__c) {
                 populateNextWateringDate(newPlant, speciesById);
+            }
+            if (oldPlant.Last_Fertilized__c != newPlant.Last_Fertilized__c) {
+                populateNextFertilizationDate(newPlant, speciesById);
             }
         }
 
@@ -76,4 +81,11 @@ public with sharing class PlantTriggerHandler {
         // Siguiente fecha riego = última fecha de riego + días devueltos
         newPlant.Next_Water__c = newPlant.Last_Watered__c.addDays(daysToAdd);
     } // Cerramos populate 
+
+    private static void populateNextFertilizationDate(Plant__c newPlant, Map<Id, Specie__c> speciesById) {
+        Id specieId = newPlant.Specie__c;
+        Specie__c specie = speciesById.get(specieId);
+        Integer daysToAdd = FrequencyService.getFertilizationDays(specie);
+        newPlant.Next_Fertilization__c = newPlant.Last_Fertilized__c.addDays(daysToAdd);
+    }
 } // Cerramos la clase
