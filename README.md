@@ -33,3 +33,7 @@ sfdx force:source:retrieve -m CustomObject:Plant__c
 # Descargarme la TAB de un objeto desde la ORG
 
 sfdx force:source:retrieve -m CustomTab:Plant__c
+
+# API tiempo
+
+https://www.el-tiempo.net/api/json/v2/provincias/18/municipios/18087
